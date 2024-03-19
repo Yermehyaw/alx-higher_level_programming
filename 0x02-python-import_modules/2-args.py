@@ -12,6 +12,6 @@ if __name__ == '__main__':
         else:
             print("{} arguments:".format(arglen))
         while arglen > 0:
-            print("{len}: {name}".format(len=i, name=argv[arglen]))
+            print("{len}: {name}".format(len=i, name=argv[i]))
             i += 1
             arglen -= 1

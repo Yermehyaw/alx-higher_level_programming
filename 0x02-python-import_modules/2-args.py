@@ -5,8 +5,8 @@ if __name__ == '__main__':
     if arglen == 1:
         print("0 arguments.")
     elif arglen > 1:
-        arglen -= 1 # decrement to avoid index 0 i.e program name
-        i = 1 # iterator
+        arglen -= 1  # decrement to avoid index 0 i.e program name
+        i = 1  # iterator
         if arglen == 1:
             print("{} argument:".format(arglen))
         else:

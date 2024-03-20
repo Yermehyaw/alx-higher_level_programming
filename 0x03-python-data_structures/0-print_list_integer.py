@@ -2,5 +2,6 @@
 def print_list_integer(my_list=[]):
     i = 0
     while i < len(my_list):
-        print("{}"str.format(my_list[i]))
+        str = '{}'
+        print(str.format(my_list[i]))
         i += 1

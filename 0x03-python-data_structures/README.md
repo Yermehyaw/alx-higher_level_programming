@@ -6,9 +6,9 @@ useful scripts for manipulating and organizing lists and tuples.
 
 Thus, the following scripts/functions  will:
 
-0: Print al inyegers in a list.
+0: Print all integers in a list.
 
-1: Retrieve all elements from a list in a C-lie manmer.
+1: Retrieve all elements from a list in a C-like manmer.
 
 2: Replace values of certain items/elements in a list.
 

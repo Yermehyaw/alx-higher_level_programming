@@ -10,6 +10,8 @@ The uses and detailed description of these functionsa re given below:
 
 0: An empty class that defines a square.
 
-1: Another class that is defined by another py script
+1: Another class with size defined as a private attr
 
-2: 
+2: class now has its size attr guarded
+
+3: class has an added area merhod which returns the area of the square

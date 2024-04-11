@@ -1,9 +1,9 @@
 PYTHON - INTRODUCTION TO TEST DRIVEN DEVELOPMENT
 
-This is the offucial readme for 0x07-python-test_driven_development dir.
+This is the official readme for 0x07-python-test_driven_development dir.
 
-This dir contains several simple examples demostrating how doctests and unittests
-can be ysed in python to ensure code durability.
+This dir contains several simple examples demonstrating how doctests and unittests
+can be used in python to ensure code durability.
 
 
 
@@ -17,7 +17,7 @@ The following scripts/filles contains test(s) for function that:
 
 3: prints a square with the character #.
 
-4: prints a text with 2 new lines after each of these characters: ., ? and :.
+4: prints a text with 2 new lines after each of these characters: ".," "?" and ":"
 
 5: This file contains uniitests for a function - def max_integer(list=[]):.
 

@@ -4,6 +4,17 @@ Tests for 3-say_my_name mofule
 
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
+>>> say_my_name("Dope")
+My name is Dope
+
+>>> say_my_name("Dope", "Guy")
+My name is Dope Guy
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+ ....
+TypeError: first_name must be a string
+
 >>> say_my_name() # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
  ....
@@ -23,8 +34,3 @@ TypeError: first_name must be a string
 Traceback (most recent call last):
  ....
 TypeError: last_name must be a string
-
->>> say_my_name(None)
-Traceback (most recent call last):
- ....
-TypeError: first_name must be a string

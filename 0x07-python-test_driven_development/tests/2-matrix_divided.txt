@@ -1,0 +1,118 @@
+--------------------------------
+Tests for 2-matrix_divided module
+--------------------------------
+
+``matrix_divided()``: Returns a new list with all elemenemts divided
+		      by specified value
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> empty_list = []
+>>> string_list = ["man", 6, "10"]
+>>> empty_nested = [[]]
+>>> nested_list = [[2, 4], [6, 8]]
+>>> uneven_nested = [[4, 5, 6], [3, 4, 7, 6], [4, 7]]
+>>> string_nested = [["boy", 4, 6], ["5", 5, None]]
+>>> string_uneven_nested = [[4, 6, 7], ["bay", 56, -0], [3, 6]]
+
+
+# # # # # #
+# Tests with mostly matrix changing
+# # # # # #
+
+-------------------------------------
+# must have only 2 arguments
+>>> matrix_divided() # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+TypeError: Wrong no of arguments
+
+>>> matrix_divided(nested_list) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+TypeError: Wrong no of argiments
+
+>>> matrix_divided(nested_list, 5, 7) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+TypeError: Wrong no of args
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+------------------------------------
+>>> matrix_divided(nested_list, 2)
+[[1.0, 2.0], [3.0, 4.0]]
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided("boat", 5)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(None, 5)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x 
+-------------------------------------
+>>> matrix_divided(empty_list, -3)
+[]
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(empty_nested, 5)
+[[]]
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(uneven_nested, 6)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(string_nested, 6)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(string_uneven_nested, 6)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+
+
+# # # # #
+# Tests with div changing
+# # # # #
+
+>>> matrix_divided(nested_list, None)
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+-------------------------------------
+x x x x x x x x x x x x x x x x x x
+-------------------------------------
+>>> matrix_divided(nested_list, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero

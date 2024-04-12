@@ -1,0 +1,53 @@
+Tests for the 0-add_integer module
+
+``add_integer()`` Returns the sum of a max of two arguments passed
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(0, 1)
+1
+
+>>> add_integer(-1, 4)
+3
+
+>>> add_integer(2)
+100
+
+>>> add_integer(4.5, 3.4)
+7
+
+>>> add_integer(-2, -6)
+-8
+
+# bolean value allowed
+>>> add_integer(3, True)
+4
+
+# more than 2 args is not allowed(duh...)
+>>> add_integer(4, 6, 8) # doctest: +ELLIPSIS
+Traceback (most recent call last):
+...
+TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+>>> add_integer(√, 6) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+SyntaxError: a must be an integer
+
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(5, "6")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer

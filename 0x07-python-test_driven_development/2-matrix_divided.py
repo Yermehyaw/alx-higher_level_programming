@@ -27,26 +27,26 @@ def matrix_divided(matrix, div):
 
     # Guarding matrix
     # Check if matrix is a list
-    if matrix is None or type(matrix) is not list:
+    if not isinstance(matrix, list):
         raise TypeError("matrix must be a matrix (list of lists) of \
-        integers floats")
+integers/floats")
 
     # Check if matrix is a list of lists
     for row in matrix:
         if not isinstance(row, list):  # is it a 2d matrix?
             raise TypeError("matrix must be a matrix (list of lists) of \
-                    integers/floats")
+integers/floats")
         for element in row:
             if not isinstance(element, (int, float)):
                 raise TypeError("matrix must be a matrix (list of lists) of \
-                    integers/floats")
+integers/floats")
 
     #  Check if all rows are of equal length
     for i in range(len(matrix)):
         try:
             if len(matrix[i]) != len(matrix[i + 1]):
                 raise TypeError("Each row of the matrix must \
-                have the same size")
+have the same size")
         except IndexError:  # matrix[i + 1] exceeded maximum matrix index
             pass
 

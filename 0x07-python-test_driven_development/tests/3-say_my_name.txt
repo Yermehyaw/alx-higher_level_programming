@@ -1,0 +1,30 @@
+Tests for 3-say_my_name mofule
+
+``say_my_name`` Prints the name of the user to stdout
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name() # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ ....
+TypeError: Invalid name entry
+
+>>> say_my_name("Amit", "Josh", "Peter") # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ ....
+TypeError: Invalid name entry
+
+>>> say_my_name(4, "Kemi")
+Traceback (most recent call last):
+ ....
+TypeError: first_name must be a string
+
+>>> say_my_name("Dope", 5)
+Traceback (most recent call last):
+ ....
+TypeError: last_name must be a string
+
+>>> say_my_name(None)
+Traceback (most recent call last):
+ ....
+TypeError: first_name must be a string

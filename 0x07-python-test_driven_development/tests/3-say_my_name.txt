@@ -5,7 +5,7 @@ Tests for 3-say_my_name mofule
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 >>> say_my_name("Dope")
-My name is Dope
+My name is Dope 
 
 >>> say_my_name("Dope", "Guy")
 My name is Dope Guy

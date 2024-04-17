@@ -18,7 +18,7 @@ def lookup(obj):
 
     try:
         list_attr = list(dir(obj))
-    except:
+    except ():
         raise TypeError("Invalid object passed")
     else:
         return (list_attr)

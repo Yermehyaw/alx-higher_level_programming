@@ -6,4 +6,11 @@ Imported module: None
 
 
 class BaseGeometry:
+    """An empty parent class
+
+    Attributes:
+    None
+
+    """
+    
     pass

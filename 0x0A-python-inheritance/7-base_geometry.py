@@ -31,16 +31,17 @@ class BaseGeometry:
         """Validates @value is  an integer
 
         Args:
-        name (str): name of the object
+        name (str): name of the object.
         value (str): integer value
 
         Returns:
         Void
 
+        Note:
+        @name will be asumed to always be a string
+
         """
 
-        if not isinstance(name, str):
-            raise TypeError("name must be  a string")
         if not isinstance(value, int):
             raise TypeError(name + " must be an integer")
         if value <= 0:

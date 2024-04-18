@@ -19,11 +19,6 @@ TypeError: ...
 
 >>> obj.integer_validator("boy", 10)
 
->>> obj.integer_validator(10, 10)
-Traceback (most recent call last):
-...
-TypeError: name must be a string
-
 >>> obj.integer_validator("boy", "boy")
 Traceback (most recent call last):
 ...

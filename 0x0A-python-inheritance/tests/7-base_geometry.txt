@@ -8,17 +8,19 @@ Tests for 7-base_geometry.py module
 >>> obj = BaseGeometry()
 
 >>> obj.area()
-area() is not implemented
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
 
 >>> obj.area(10) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
 ...
-AttributeError: ...
+TypeError: ...
 
 >>> obj.integer_validator("boy", 10)
 
 >>> obj.integer_validator(10, 10)
-Traceback (most recent cal last):
+Traceback (most recent call last):
 ...
 TypeError: name must be a string
 

@@ -4,6 +4,7 @@
 Imported Module: None
 """
 
+
 def is_same_class(obj, a_class):
     """ Returns a bool if an obhect is exactly tge sane with a specified class
 
@@ -16,4 +17,4 @@ def is_same_class(obj, a_class):
 
     """
 
-    return isinstance(obj, a_class):
+    return isinstance(obj, a_class)

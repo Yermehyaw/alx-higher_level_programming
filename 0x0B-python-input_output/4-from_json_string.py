@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-import json
 """Imported module: json
 
 consists several methods for serializing and deserializing python data objects
 like ints, dicts, bools etc
 
 """
+import json
 
 
 def from_json_string(my_str):

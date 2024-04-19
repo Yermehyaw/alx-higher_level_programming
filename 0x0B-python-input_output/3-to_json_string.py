@@ -2,8 +2,10 @@
 
 import json
 """Imported module: json
+
 consists several methods for serializing and deserializing python data objects
 like ints, dicts, bools etc
+
 """
 
 

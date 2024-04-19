@@ -20,5 +20,7 @@ def load_from_json_file(filename):
 
     """
 
-    json_obj = json.load(filename)  # json_obj: obj made frm json
-    return json_obj
+    with open(filename) as fread:
+        for line in fread:
+            json_obj = json.loads(line)  # json_obj: obj made frm json
+            return json_obj

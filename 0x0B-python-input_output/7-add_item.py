@@ -31,7 +31,7 @@ try:
     list_obj = load_from_json_file("add_item.json")
 #    print ("Object retrieved from file prior to adding to it: ", list_obj)
 except Exception:  # file had not been previously created
-#    print("Exception has occurred {} is stored in file".format(args))
+    #    print("Exception has occurred {} is stored in file".format(args))
     save_to_json_file(args, "add_item.json")  # create the json file
 else:
     args = list(list_obj) + args  # file exists, add arguments passed

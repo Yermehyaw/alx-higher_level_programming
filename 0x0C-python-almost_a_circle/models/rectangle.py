@@ -31,17 +31,17 @@ class Rectangle(Base):
 
         """
         super().__init__(id)
-        self.set_width(width)
-        self.set_height(height)
-        self.set_x(x)
-        self.set_y(y)
+        self.width(width)
+        self.height(height)
+        self.x(x)
+        self.y(y)
 
-    def get_width(self):
+    def width(self):
         """Returns width value
         """
         return self.__width
 
-    def set_width(self, val):
+    def width(self, val):
         """Inits the value of width
 
         Args:
@@ -53,12 +53,12 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
-    def get__height(self):
+    def height(self):
         """Returns height value
         """
         return self.__height
 
-    def set_height(self, val):
+    def height(self, val):
         """Inits the value of height
 
         Args:
@@ -70,12 +70,12 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
-    def get_x(self):
+    def x(self):
         """Returns x value
         """
         return self.__x
 
-    def set_x(self, val):
+    def x(self, val):
         """Inits the value of x
 
         Args:
@@ -87,12 +87,12 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
-    def get_y(self):
+    def y(self):
         """Returns y  value
         """
         return self.__y
 
-    def set_y(self, val):
+    def y(self, val):
         """Inits the value of y
 
         Args:

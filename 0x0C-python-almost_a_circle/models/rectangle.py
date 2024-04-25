@@ -31,10 +31,10 @@ class Rectangle(Base):
 
         """
         super().__init__(id)
-        self.width(width)
-        self.height(height)
-        self.x(x)
-        self.y(y)
+        self.__width = width  # property setter is automatically called
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):

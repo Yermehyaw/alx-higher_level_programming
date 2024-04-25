@@ -36,11 +36,13 @@ class Rectangle(Base):
         self.x(x)
         self.y(y)
 
+    @property
     def width(self):
         """Returns width value
         """
         return self.__width
 
+    @width.setter
     def width(self, val):
         """Inits the value of width
 
@@ -53,11 +55,13 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
+    @property
     def height(self):
         """Returns height value
         """
         return self.__height
 
+    @height.setter
     def height(self, val):
         """Inits the value of height
 
@@ -70,11 +74,13 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
+    @property
     def x(self):
         """Returns x value
         """
         return self.__x
 
+    @x.setter
     def x(self, val):
         """Inits the value of x
 
@@ -87,11 +93,13 @@ class Rectangle(Base):
         else:
             raise TypeError("Invalid number")
 
+    @property
     def y(self):
         """Returns y  value
         """
         return self.__y
 
+    @y.setter
     def y(self, val):
         """Inits the value of y
 

@@ -50,12 +50,12 @@ class Rectangle(Base):
         val (int): value to be set
 
         """
-        if isinstance(val, int):
-            self.__width = val
-        else:
+        if not isinstance(val, int):
             raise TypeError("width must be a integer")
-        if width <= 0:
+        elif val <= 0:
             raise ValueError("width must be > 0")
+        else:
+            self.__width = val
 
     @property
     def height(self):
@@ -71,12 +71,12 @@ class Rectangle(Base):
         val (int): value to be set
 
         """
-        if isinstance(val, int):
-            self.__height = val
-        else:
+        if not isinstance(val, int):
             raise TypeError("height must be an integer")
-        if height <= 0:
-            raise ValueError("heihht must be > 0")
+        elif val <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = val
 
     @property
     def x(self):
@@ -92,12 +92,12 @@ class Rectangle(Base):
         val (int): value to be set
 
         """
-        if isinstance(val, int):
-            self.__x = val
-        else:
+        if not isinstance(val, int):
             raise TypeError("x must be an integer")
-        if x < 0:
+        elif val < 0:
             raise ValueError("x must be >= 0")
+        else:
+            self.__x = val
 
     @property
     def y(self):
@@ -113,9 +113,84 @@ class Rectangle(Base):
         val (int): value to be set
 
         """
-        if isinstance(val, int):
-            self.__y = val
-        else:
+        if not isinstance(val, int):
             raise TypeError("y must be an integer")
-        if y < 0:
+        elif val < 0:
             raise ValueError("y must be >= 0")
+        else:
+            self.__y = val
+
+    # Return Area
+    def area(self):
+        """Returns the area of the shape
+
+        Args:
+        None
+
+        """
+        return self.width * self.length
+
+    # Display the Shape
+    def display(self):
+        """Prints the shape to stdout using "#"
+
+        Args:
+        None
+
+        """
+        print("\n" * self.y)
+        for i in range(self.length):
+            print(" " * self.x)
+            for j in range(self.width):
+                print("#", end="")
+            print("")
+
+    # Define a __str__ method
+    def __str__(self):
+        """Handle how output is given to stdout for this class
+
+        Args:
+        None
+
+        """
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+        - {self.width}/{self.height}"
+
+    # Update the attributes of the shape
+    def update(self, *args, **kwargs):
+        """Update the class Rectangle attributes
+
+        Args:
+        args (tuple): positional variable number of integers
+        kwargs (dict): keyworded variable number of integers
+
+        """
+        if args is None:
+            if kwargs is None:
+                raise TypeError("Enter a valid number of arguments")
+            else:  # kwargs in not None
+                for key, value in kwargs.items():
+                    match str(key):
+                        case "id":
+                            self.id = id
+                        case "width":
+                            self.width = value
+                        case "height":
+                            self.height = value
+                        case "x":
+                            self.x = value
+                        case "y":
+                            self.y = value
+        else:
+            i = 0
+            while i < len(args):
+                self.id = args[i]
+                i += 1
+                self.width = args[i]
+                i += 1
+                self.height = args[i]
+                i += 1
+                self.x = args[i]
+                i += 1
+                self.y = args[i]
+                i += 1

@@ -39,6 +39,10 @@ class Rectangle(Base):
     @property
     def width(self):
         """Returns width value
+
+        Args:
+        None
+
         """
         return self.__width
 
@@ -63,7 +67,7 @@ class Rectangle(Base):
 
         Args:
         None
-        
+
         """
         return self.__height
 

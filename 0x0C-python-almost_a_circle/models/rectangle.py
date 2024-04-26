@@ -25,8 +25,8 @@ class Rectangle(Base):
         Args:
         width (int)
         height (int)
-        x(int)
-        y (int)
+        x (int): positive x coordinate
+        y (int): positive y coordinate
         id (int): identity no - automatically inherited from parent class
 
         """
@@ -60,6 +60,10 @@ class Rectangle(Base):
     @property
     def height(self):
         """Returns height value
+
+        Args:
+        None
+        
         """
         return self.__height
 
@@ -81,6 +85,10 @@ class Rectangle(Base):
     @property
     def x(self):
         """Returns x value
+
+        Args:
+        None
+
         """
         return self.__x
 
@@ -102,6 +110,10 @@ class Rectangle(Base):
     @property
     def y(self):
         """Returns y  value
+
+        Args:
+        None
+
         """
         return self.__y
 
@@ -194,3 +206,14 @@ class Rectangle(Base):
                 i += 1
                 self.y = args[i]
                 i += 1
+
+    def to_dictionary(self):
+        """Returns the dict representation of the class
+
+        Args:
+        None
+
+        """
+        # Returns a dict from a list of tuples
+        return dict([('id', self.id), ('width', self.width),
+                     ('height', self.height), ('x', self.x), ('y', self.y)])

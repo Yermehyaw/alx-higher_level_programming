@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
 """
-Imported module(s): None
+Imported module(s):
+
+json
+intercoverts python objects into transferrable strings or json objects
 """
+import json
 
 
 class Base:
@@ -42,3 +46,22 @@ class Base:
         else:
             json_str = json.dumps(list_dictionaries)
             return json_str
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Saves a json string rep into a file
+
+        Args:
+        list_objs (list): List of python data objects
+
+        """
+        if not isinstance(list_objs, list):
+            raise TypeError("Argument must be a list")
+        for obj in list_objs:
+            if not isinstance(obj, Base):
+                raise TypeError("Object is not of class Base")
+        with open(list_objs[0].__class__ + ".json", "w") as f:
+            if list_objs is None:
+                f.close()
+            else:
+                f = to_json_string(list_objs)

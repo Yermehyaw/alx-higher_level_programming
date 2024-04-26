@@ -65,3 +65,17 @@ class Base:
                 f.close()
             else:
                 f = to_json_string(list_objs)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns a list of dictionaries from a json string representation
+
+        Args:
+        json_string (str): a json string rep of a list
+
+        """
+        if json_string is None or json_string == "":
+            return list()
+        else:
+            obj = json.dumps(json_string)
+            return obj

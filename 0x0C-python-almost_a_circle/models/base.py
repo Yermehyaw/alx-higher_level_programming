@@ -5,8 +5,12 @@ Imported module(s):
 
 json
 intercoverts python objects into transferrable strings or json objects
+
+rectangle
+A module containig attributes that define a 2d square
 """
 import json
+# from models.rectangle  import Rectangle  # circular import
 
 
 class Base:
@@ -55,13 +59,8 @@ class Base:
         list_objs (list): List of python data objects
 
         """
-        if not isinstance(list_objs, list):
-            raise TypeError("Argument must be a list")
-        for obj in list_objs:
-            if not isinstance(obj, Base):
-                raise TypeError("Object is not of class Base")
-        with open(list_objs[0].__class__ + ".json", "w") as f:
-            if list_objs is None:
+        with open(str(cls.__class__) + ".json", "w") as f:
+            if list_objs is None or not isinstance(list_objs, list):
                 f.close()
             else:
                 f = to_json_string(list_objs)
@@ -77,5 +76,58 @@ class Base:
         if json_string is None or json_string == "":
             return list()
         else:
-            obj = json.dumps(json_string)
+            obj = json.loads(json_string)
             return obj
+
+    def update(self, *args, **kwargs):
+        """Update the class Rectangle attributes
+
+        Args:
+        args (tuple): positional variable number of integers
+        kwargs (dict): keyworded variable number of integers
+
+        """
+        if args is None:
+            if kwargs is None:
+                raise TypeError("Enter a valid number of arguments")
+            else:  # kwargs in not None
+                for key, value in kwargs.items():
+                    match str(key):
+                        case "id":
+                            self.id = id
+                        case "width":
+                            self.width = value
+                        case "height":
+                            self.height = value
+                        case "x":
+                            self.x = value
+                        case "y":
+                            self.y = value
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance of the base method with all its attributes set
+
+        Args:
+        dictionary (dict): keyworded variable no of argumemts
+
+        """
+        obj = cls.Rectangle(10, 10)
+        obj.update(None, **dictionary)
+        return obj
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances from a json file
+
+        Args:
+        None
+
+        """
+        with open(str(cls.__class__) + ".json", "r") as f:
+            list_dict = json.load(f)
+            # convert a list of dictionaries(like a list of **kwargs) to a list
+            list_instances = []
+            for dictionary in list_dict:
+                list_instances.append(cls.create(dictionary))
+            return list_instances

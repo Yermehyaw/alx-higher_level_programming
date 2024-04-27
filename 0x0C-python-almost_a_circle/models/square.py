@@ -61,6 +61,9 @@ class Square(Rectangle):
         Args:
         None
 
+        Returns:
+        str rep of the class
+
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - \
         {self.size}"
@@ -72,6 +75,9 @@ class Square(Rectangle):
         Args:
         args (tuple): positional variable number of integers
         kwargs (dict): keyworded variable number of integers
+
+        Returns:
+        None
 
         """
         if args is None:
@@ -107,6 +113,9 @@ class Square(Rectangle):
 
         Args:
         None
+
+        Returns:
+        A dict
 
         """
         # Returns a dict from a list of tuples

@@ -16,6 +16,7 @@ class Rectangle(Base):
     __height (int)
     __x (int): x-coordinates
     __y (int): -coordinates
+    id (int): identity no of obj derived/instantiated from this class
 
     """
 
@@ -38,22 +39,13 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Returns width value
-
-        Args:
-        None
-
+        """Getter: Returns width value
+        Setter: Edits width value
         """
         return self.__width
 
     @width.setter
     def width(self, val):
-        """Inits the value of width
-
-        Args:
-        val (int): value to be set
-
-        """
         if not isinstance(val, int):
             raise TypeError("width must be a integer")
         elif val <= 0:
@@ -63,22 +55,13 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Returns height value
-
-        Args:
-        None
-
+        """Getter: Returns height value
+        Setter: Edits height value
         """
         return self.__height
 
     @height.setter
     def height(self, val):
-        """Inits the value of height
-
-        Args:
-        val (int): value to be set
-
-        """
         if not isinstance(val, int):
             raise TypeError("height must be an integer")
         elif val <= 0:
@@ -88,22 +71,13 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Returns x value
-
-        Args:
-        None
-
+        """Getter: Returns x value
+        Setter: Edits x value
         """
         return self.__x
 
     @x.setter
     def x(self, val):
-        """Inits the value of x
-
-        Args:
-        val (int): value to be set
-
-        """
         if not isinstance(val, int):
             raise TypeError("x must be an integer")
         elif val < 0:
@@ -113,22 +87,13 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Returns y  value
-
-        Args:
-        None
-
+        """Getter: Returns y  value
+        Setter: Edits y value
         """
         return self.__y
 
     @y.setter
     def y(self, val):
-        """Inits the value of y
-
-        Args:
-        val (int): value to be set
-
-        """
         if not isinstance(val, int):
             raise TypeError("y must be an integer")
         elif val < 0:
@@ -141,7 +106,10 @@ class Rectangle(Base):
         """Returns the area of the shape
 
         Args:
-        None
+            None
+
+        Returns:
+            area of object
 
         """
         return self.width * self.length
@@ -151,7 +119,10 @@ class Rectangle(Base):
         """Prints the shape to stdout using "#"
 
         Args:
-        None
+           None
+
+        Returns:
+           None
 
         """
         print("\n" * self.y)
@@ -166,7 +137,10 @@ class Rectangle(Base):
         """Handle how output is given to stdout for this class
 
         Args:
-        None
+           None
+
+        Returns:
+           string rep of the class
 
         """
         return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
@@ -177,8 +151,11 @@ class Rectangle(Base):
         """Update the class Rectangle attributes
 
         Args:
-        args (tuple): positional variable number of integers
-        kwargs (dict): keyworded variable number of integers
+           args (tuple): positional variable number of integers
+           kwargs (dict): keyworded variable number of integers
+
+        Returns:
+           None
 
         """
         if args is None:
@@ -215,7 +192,10 @@ class Rectangle(Base):
         """Returns the dict representation of the class
 
         Args:
-        None
+           None
+
+        Returns:
+           A dict
 
         """
         # Returns a dict from a list of tuples

@@ -26,7 +26,7 @@ class Rectangle(Base):
         Args:
         width (int)
         height (int)
-        x (int): positive x coordinate
+        3x (int): positive x coordinate
         y (int): positive y coordinate
         id (int): identity no - automatically inherited from parent class
 
@@ -120,7 +120,7 @@ class Rectangle(Base):
             area of object
 
         """
-        return self.width * self.length
+        return self.width * self.height
 
     # Display the Shape
     def display(self):

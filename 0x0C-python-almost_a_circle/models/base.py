@@ -21,6 +21,8 @@ class Base:
 
     """
     __nb_objects = 0
+    """int: no of objects made from this class
+    """
 
     def __init__(self, id=None):
         """Object constructor/initializer
@@ -40,7 +42,7 @@ class Base:
         """Returms the JSON string representation of a list of dictionaries
 
         Args:
-        list_dictionaries (list): A lost of dictionaries
+        list_dictionaries (list): A list of dictionaries
 
         """
         if list_dictionaries is None:

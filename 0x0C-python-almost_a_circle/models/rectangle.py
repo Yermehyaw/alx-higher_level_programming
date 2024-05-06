@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Imported module: base
 
@@ -134,7 +133,7 @@ class Rectangle(Base):
 
         """
         print("\n" * self.y)
-        for i in range(self.length):
+        for i in range(self.height):
             print(" " * self.x)
             for j in range(self.width):
                 print("#", end="")

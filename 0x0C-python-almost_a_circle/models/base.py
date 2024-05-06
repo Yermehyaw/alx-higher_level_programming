@@ -58,6 +58,7 @@ class Base:
         """Saves a json string rep into a file
 
         Args:
+        cls: Base class
         list_objs (list): List of python data objects
 
         """
@@ -111,6 +112,7 @@ class Base:
         """Returns an instance of the base method with all its attributes set
 
         Args:
+        cls: Base class
         dictionary (dict): keyworded variable no of argumemts
 
         """
@@ -123,7 +125,7 @@ class Base:
         """Returns a list of instances from a json file
 
         Args:
-        None
+        cls: Base class
 
         """
         with open(str(cls.__class__) + ".json", "r") as f:

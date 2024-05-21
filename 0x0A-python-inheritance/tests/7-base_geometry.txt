@@ -1,0 +1,35 @@
+Tests for 7-base_geometry.py module
+
+``area()``: Raises an exception
+``integer_validator()``: Validates if the value parameter is an integer
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> obj = BaseGeometry()
+
+>>> obj.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+>>> obj.area(10) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+...
+TypeError: ...
+
+>>> obj.integer_validator("boy", 10)
+
+>>> obj.integer_validator("boy", "boy")
+Traceback (most recent call last):
+...
+TypeError: boy must be an integer
+
+>>> obj.integer_validator("boy", 0)
+Traceback (most recent call last):
+...
+ValueError: boy must be greater than 0
+
+>>> obj.integer_validator("boy", -6)
+Traceback (most recent call last):
+...
+ValueError: boy must be greater than 0

@@ -11,3 +11,21 @@ scripting/python programming with C convepts/code.
 
 2. 0x01. Python - if/else, loops, functions.
 Using loops and variables in python programming.
+
+3. 0x02-python-import_modules
+
+4. 0x03-python-data_structures
+
+5. 0x04-python-more_data_structures
+
+6. 0x05-python-exceptions
+
+7. 0x06-python-classes
+
+8. 0x07-python-test_driven_development
+
+9. 0x09-python-everything_is_object
+
+10. 0x0A-python-inheritance
+
+11. 0x0D-SQL_introduction

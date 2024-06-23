@@ -8,13 +8,13 @@
 const process = require('process');
 let args = process.argv;
 if (args === undefined) {
-	console.log('Not a number');
+	console.log('Not a number\n');
 } else {
 	try new value = int(args[2]);
 	catch (Exception) {		
-		throw new 'Not a number';
+		throw new 'Not a number\n';
 		return;
-	console.log(`My number: $(value)`);
+	console.log(`My number: $(value)\n`);
 	}
 }
 

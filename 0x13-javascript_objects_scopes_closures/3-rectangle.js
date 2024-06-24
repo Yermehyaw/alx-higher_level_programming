@@ -40,4 +40,5 @@ class Rectangle {
 	console.log('X');
       }
     }
+  }
 }

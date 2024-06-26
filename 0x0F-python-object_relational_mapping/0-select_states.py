@@ -17,6 +17,6 @@ if __name__ == '__main__':
 #        return
     cur_1 = conn_db.cursor()
     name_row_value = cur_1.execute(f"SELECT * FROM {sys.argv[3]} ORDER BY\
-states.id ASC")
+id ASC")
     print(name_row_value)
 #    return (0)

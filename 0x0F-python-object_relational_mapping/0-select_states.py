@@ -8,6 +8,7 @@ Library for executing shell commands from a pyscript
 MySQLdb
 Managing MySQL databases from apyscript
 """
+
 import sys
 import MySQLdb
 

@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+import MySQLdb
 """
 Modules Imported: sys, MySQLdb
 
@@ -10,8 +12,6 @@ MySQLdb
 Managing MySQL databases from apyscript
 
 """
-import sys
-import MySQLdb
 
 
 if __name__ == '__main__':

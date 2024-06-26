@@ -1,17 +1,12 @@
 #!/usr/bin/python3
 
-import sys
-import MySQLdb
 """
 Modules Imported: sys, MySQLdb
-
-sys
-Library for executing shell commands from a pyscript
-
-MySQLdb
-Managing MySQL databases from apyscript
-
+sys: Library for executing shell commands from a pyscript
+MySQLdb: Managing MySQL databases from apyscript
 """
+import sys
+import MySQLdb
 
 
 if __name__ == '__main__':

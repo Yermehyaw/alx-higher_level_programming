@@ -24,7 +24,7 @@ if __name__ == '__main__':
         print('Couldnt connect to the database')
 
     cur = conn.cursor()
-    cur.execute('SELECT * FROM states ORDER BY cities.id ASC')
+    cur.execute('SELECT cities, states FROM states ORDER BY cities.id ASC')
 
     table = cur.fetchall()
     for row in table:

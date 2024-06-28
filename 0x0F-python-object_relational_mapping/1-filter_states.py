@@ -25,8 +25,8 @@ if __name__ == '__main__':
         print('Couldnt connect to db')
 
     cur_1 = conn_db.cursor()
-    name_row_value = cur_1.execute(f"SELECT * FROM states WHERE name LIKE 'N%' ORDER BY\
- id ASC")
+    name_row_value = cur_1.execute(f"SELECT * FROM states WHERE name LIKE 'N%'\
+            ORDER BY id ASC")
 
     table = cur_1.fetchall()
     for row in table:

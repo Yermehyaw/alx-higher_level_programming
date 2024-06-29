@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     cur = conn.cursor()
     query = "SELECT * FROM states \
-            WHERE name = '{}' \
+            WHERE BINARY name = '{}' \
             ORDER by id ASC".format(searched)
     cur.execute(query)
 

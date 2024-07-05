@@ -14,17 +14,15 @@ if __name__ == '__main__':
     try:
         searched = sys.argv[4]  # Entry to be received fron shell - Optional
         if not isinstance(searched, str):  # must be a string
-            raise ValueError
+            raise ValueError("Argument must be a string")
         split_searched = searched.split()  # Check if more than one word is entered
         err = split_searched[1]  # Should raise a IndexError exception
         # Check if a semicolon is in the arg to prevent SQL injection
-        if searched != None:
-            for char in searched:
-                if char == ';':
-                    raise ValueError
+        for char in searched:
+            if char == ';':
+                raise ValueError("Invalid entry requested")
     except (AttributeError, ValueError, IndexError):
         print('Invalid entry requested')
-        return
     # try/except isnt used to validate the following inputs
     db_name = sys.argv[3]
     user_passwd = sys.argv[2]

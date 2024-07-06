@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 """
-Modules Imported: urllib.request
+Modules/Packages Imported: urllib, sys
 
-urllib.request: Fetch URL resources from servers
+urllib: Various modules and methods for fetching URL resources from servers
 sys: Use shell commands and args in pyscript
 """
 import urllib.request

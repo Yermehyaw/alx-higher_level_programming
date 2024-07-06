@@ -13,7 +13,8 @@ import sys
 if __name__ == "__main__":
 
     """
-    Takes in a URL and an email, sends a POST request to the passed URL with the email as a parameter, and displays the body of the response
+    Takes in a URL and an email, sends a POST request to the passed
+    URL with the email as a parameter, and displays the body of the response
     """
     if sys.argv > 3:
         return

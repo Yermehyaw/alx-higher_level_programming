@@ -6,7 +6,7 @@ Modules/Packages Imported: urllib, sys
 urllib: Various modules and methods for fetching URL resources from servers
 sys: Use shell commands and args in pyscript
 """
-import urllib.request
+import urllib
 import sys
 
 

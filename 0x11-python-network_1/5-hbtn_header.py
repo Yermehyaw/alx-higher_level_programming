@@ -20,7 +20,7 @@ if __name__ == "__main__":
         exit(1)
     url = sys.argv[1]
     page = requests.get(url)
-    try:   # try block to ensure variable is available in response
+    try:   # try block to ensure header is available in response
         print(page.headers['X-Request-Id'])
-    except():
+    except(KeyError):
         pass

@@ -22,17 +22,19 @@ if __name__ == "__main__":
     try:  # In case an exception is raised as url resource is fetched
         page = requests.get(url)
         stat_code = page.status_code
-        if (stat_code < 400):
+        if (stat_code < 400):  # 'good' status codes includ redirections
             print(page.text)
-        else:
-            print("Eror code:", stat_code)  # Any other 'bad' status code
+        else:  # Any other 'bad' status code
+            print("Eror code:", stat_code)
     except requests.exceptions.RequestException as resp_err:
-        print('Error: ', resp_err)  # status_code attribute unavailable
+        str_resp = str(resp_err)
+        to_find = "status_"
+        idx = str_resp.find(to_find)
+        if idx != -1:
+            # @stat_code here is on a different scope from the first
+            stat_code = str_resp[idx + 7: idx + 10]
+            print('Error code:', stat_code)
     except requests.exceptions.HTTPError as http_err:
         print('Error code:', http_err.response.status_code)
-    except requests.exceptions.ConnectionError as conn_err:
-        print('Error: ', conn_err)  # Same here
-    except requests.exceptions.Timeout as time_err:
-        print('Error: ', time_err)  # and here too
     except Exception:  # Any other one which only the Lord knows ....
         print("An unknown error ocurred")

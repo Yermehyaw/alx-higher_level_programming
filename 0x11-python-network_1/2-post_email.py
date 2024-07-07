@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 """
-Modules/Packages Imported: urllib, sys
+Modules/Packages Imported: urllib.request, sys
 
-urllib: Various modules and methods for fetching URL resources from servers
+urllib.request: Various modules and methods for fetching URL resources from servers
 sys: Use shell commands and args in pyscript
 """
-import urllib
+import urllib.request
 import sys
 
 
@@ -26,5 +26,4 @@ if __name__ == "__main__":
     req = urllib.request.Request(url, post_data)
     with urllib.request.urlopen(req) as response:
         page = response.read()
-        print("Your email is: {}".format(page.##))
-        # will only email be returned in the respinse or the whole page
+        print("Your email is: {}".format(page.decode('utf-8')))

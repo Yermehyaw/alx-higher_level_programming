@@ -23,8 +23,9 @@ if __name__ == "__main__":
     email = sys.argv[2]
     params = {'email': email}  # data to POST in URL
     post_data = urllib.parse.urlencode(params)  # Encoding the values to a URI
-    post_data = post_data.encode('utf-8')  # the docs used 'ascii' though
-    req = urllib.request.Request(url, post_data)
+    post_data = post_data.encode('ascii')  # why ascii and not utf-8 ?
+    req = urllib.request.Request(url, data=post_data, method="POST")
     with urllib.request.urlopen(req) as response:
         page = response.read()
-        print("Your email is: {}".format(page.decode('utf-8')))
+        decode_page = page.decode('utf-8')
+        print(decode_page)

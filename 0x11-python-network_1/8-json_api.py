@@ -19,22 +19,23 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         letter = ""
     else:
-        letter = sys.argv[1]
-    url = 'http://0.0.0.0:5000/search_user'
-    params = {'q': letter}
+        letter = f"{sys.argv[1]}"  # json payload value should be double quoted
+    url = "http://0.0.0.0:5000/search_user"
+    json_payload = {"q": letter}
     try:
-        page = requests.post(url, json=params)
-        content_type = page.headers.get('Content-Type', '')  # get header
-        if 'application/json' == content_type:  # Is it a  valid json file
+        page = requests.post(url, json=json_payload)
+        content_type = page.headers.get("Content-Type", "")  # get header
+        if "application/json" == content_type:  # Is it a valid json file
             json_data = page.json()  # Decode the page to proper json
             if json_data:  # If its not empty
-                try:  # Ensure keys are in json_data which is a json dict
+                 # Ensure keys are in json_data
+                try:
                     print(f"[{json_data['id']}] {json_data['name']}")
                 except KeyError:
-                    pass
+                    print("No result")
             else:
-                print('No result')
+                print("No result")
         else:
-            print('Not a valid JSON')
+            print("Not a valid JSON")
     except requests.execeptions.RequestException:
         pass

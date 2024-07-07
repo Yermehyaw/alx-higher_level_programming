@@ -24,6 +24,7 @@ if __name__ == "__main__":
     try:
         with urllib.request.urlopen(req) as response:  # Request is made here
             page = response.read()
-            print(page)
+            decoded_page = page.decode('utf-8')
+            print(decoded_page)
     except (urllib.error.HTTPError) as err_resp:  # e has a unique attr: e.code
         print('Error code: {}'.format(err_resp.code))

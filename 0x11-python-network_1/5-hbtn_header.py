@@ -17,10 +17,10 @@ if __name__ == "__main__":
     value of the variable X-Request-Id in the response header
     """
     if len(sys.argv) < 2:
-        return
+        exit(1)
     url = sys.argv[1]
     page = requests.get(url)
     try:   # try block to ensure variable is available in response
-        print(page[X-Request-Id])
+        print(page.headers['X-Request-Id'])
     except():
         pass

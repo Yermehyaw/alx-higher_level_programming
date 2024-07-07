@@ -17,11 +17,9 @@ if __name__ == "__main__":
     http://0.0.0.0:5000/search_user with the letter as a parameter
     """
     if len(sys.argv) < 2:
-        print('No result')
-        exit(1)
-    letter = sys.argv[1]
-    if sys.argv[1] is None:
         letter = ""
+    else:
+        letter = sys.argv[1]
     url = 'http://0.0.0.0:5000/search_user'
     params = {'q': letter}
     try:

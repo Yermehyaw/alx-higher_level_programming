@@ -22,5 +22,7 @@ if __name__ == "__main__":
     # No particular reason I didnt use urllib.request.urlopen() directly
     req = urllib.request.Request(url)  # Presume using .Requests() is safer
     with urllib.request.urlopen(req) as response:
-        page = response.read()
-        page.__str__  # Find the X-Request-Id header in the page which shpuld be a string?
+        header_found = response.getheader('X-Request-Id')
+        if header_found != None:
+            print(header_found)
+        print('Custom header not found')

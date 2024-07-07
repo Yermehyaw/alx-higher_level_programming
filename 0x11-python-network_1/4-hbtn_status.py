@@ -15,4 +15,6 @@ if __name__ == "__main__":
     """
     req = requests.get('https://alx-intranet.hbtn.io/status')
     page = req.text
-    print(f"Body response:\n\t-{page[type]}\n\t-{page[content]}")
+    print(f"Body response:\n\
+\t- type: {type(page)}\n\
+\t- content: {page}")

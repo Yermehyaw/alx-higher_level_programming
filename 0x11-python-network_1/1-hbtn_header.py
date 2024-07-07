@@ -16,8 +16,8 @@ if __name__ == "__main__":
     Takes in a URL, sends a request to the URL and displays
     the value of the X-Request-Id variable found in the header of the response
     """
-    if sys.argv < 2:
-        return
+    if len(sys.argv) < 2:
+        exit(1)
     url = sys.argv[1]
     # No particular reason I didnt use urllib.request.urlopen() directly
     req = urllib.request.Request(url)  # Presume using .Requests() is safer

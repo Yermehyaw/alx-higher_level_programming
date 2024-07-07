@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 """
-Modules/Packages Imported: urllib, sys
+Modules/Packages Imported: urllib,6.request sys
 
-urllib: Various modules and methods to fetch URL resources from servers
+urllib.request: Various modules and methods to fetch URL resources from servers
 sys: Use shell commands and args in pyscript
 """
-import urllib
+import urllib.request
 import sys
 
 
@@ -23,6 +23,6 @@ if __name__ == "__main__":
     req = urllib.request.Request(url)  # Presume using .Requests() is safer
     with urllib.request.urlopen(req) as response:
         header_found = response.getheader('X-Request-Id')
-        if header_found != None:
-            print(header_found)
-        print('Custom header not found')
+        if header_found == None:
+            print('Custom header not found')
+        print(header_found)

@@ -3,7 +3,8 @@
 """
 Modules/Packages Imported: urllib.request, sys
 
-urllib.request: Various modules and methods for fetching URL resources from servers
+urllib.request: Various modules and methods for fetching URL resources
+ from servers
 sys: Use shell commands and args in pyscript
 """
 import urllib.request
@@ -16,7 +17,7 @@ if __name__ == "__main__":
     Takes in a URL and an email, sends a POST request to the passed
     URL with the email as a parameter, and displays the body of the response
     """
-    if len( sys.argv) < 3:
+    if len(sys.argv) < 3:
         exit(1)
     url = sys.argv[1]
     email = sys.argv[2]

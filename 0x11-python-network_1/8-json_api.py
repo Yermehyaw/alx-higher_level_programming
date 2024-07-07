@@ -19,11 +19,11 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         letter = ""
     else:
-        letter = f"{sys.argv[1]}"  # json payload value should be double quoted
+        letter = {sys.argv[1]}
     url = "http://0.0.0.0:5000/search_user"
-    json_payload = {"q": letter}
+    params = {"q": letter}
     try:
-        page = requests.post(url, json=json_payload)
+        page = requests.post(url, data=params)
         content_type = page.headers.get("Content-Type", "")  # get header
         if "application/json" == content_type:  # Is it a valid json file
             json_data = page.json()  # Decode the page to proper json

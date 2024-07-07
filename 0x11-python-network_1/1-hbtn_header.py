@@ -23,6 +23,6 @@ if __name__ == "__main__":
     req = urllib.request.Request(url)  # Presume using .Requests() is safer
     with urllib.request.urlopen(req) as response:
         header_found = response.getheader('X-Request-Id')
-        if header_found == None:
-            print('Custom header not found')
+        if header_found is None:
+            exit(1)
         print(header_found)

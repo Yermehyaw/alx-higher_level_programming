@@ -28,7 +28,7 @@ if __name__ == "__main__":
         if "application/json" == content_type:  # Is it a valid json file
             json_data = page.json()  # Decode the page to proper json
             if json_data:  # If its not empty
-                 # Ensure keys are in json_data
+                # Ensure keys are in json_data
                 try:
                     print(f"[{json_data['id']}] {json_data['name']}")
                 except KeyError:

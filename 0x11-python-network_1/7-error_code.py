@@ -27,7 +27,7 @@ if __name__ == "__main__":
         else:
             print("Eror code:", stat_code)  # Any other 'bad' status code
     except requests.exceptions.RequestException as resp_err:
-        print('Error: ', resp_err)  # No status_code attribute in this exception
+        print('Error: ', resp_err)  # status_code attribute unavailable
     except requests.exceptions.HTTPError as http_err:
         print('Error code:', http_err.response.status_code)
     except requests.exceptions.ConnectionError as conn_err:
@@ -36,4 +36,3 @@ if __name__ == "__main__":
         print('Error: ', time_err)  # and here too
     except Exception:  # Any other one which only the Lord knows ....
         print("An unknown error ocurred")
-

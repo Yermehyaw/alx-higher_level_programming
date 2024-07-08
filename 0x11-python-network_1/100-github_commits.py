@@ -25,10 +25,10 @@ if __name__ == "__main__":
     try:
         #for i in range(0, 10):
         response = requests.get(url, headers=headers)
-        if respomse.status_code == 200:
+        if response.status_code == 200:
             json_data = response.json()
-            committer = json_data["committer"]["name"]
-            hash_key = json_data["sha"]
-            print(hash_key: committer)
+#            committer = json_data["committer"]["name"]
+#            hash_key = json_data["sha"]
+#            print(f"{hash_key}: {committer}")
     except requests.exceptions.RequestException:
         print('Error fetchibg commits')

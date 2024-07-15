@@ -1,8 +1,10 @@
-#include <stdio.h>y
+#include <stdio.h>
 #include "search_algos.h"
 
-int divide_and_conquer(int *sorted_arr, size_t size);
+int divide_and_conquer(int *sorted_arr, size_t size, int value);
 void print_array(int *array, size_t size);
+int *right_arr(int *sorted_arr, size_t size, int mid_right);
+int *left_arr(int *sorted_arr, size_t size, int mid_left);
 
 /**
  * binary_search - Implements tge binary search algo. on an array
@@ -21,7 +23,7 @@ int binary_search(int *array, size_t size, int value)
 		return (-1);
 	if (size == 1)  /* Array of size 1*/
 		return (0);
-	found = divide_and_conquer(array, size);
+	found = divide_and_conquer(array, size, value);
 	return (found);  /*if -1, value was not foind in the array*/
 }
 
@@ -30,12 +32,14 @@ int binary_search(int *array, size_t size, int value)
  * divide_and_conquer - Inplement the recursioms needed in the algorithm
  * @sorted_arr: array sorted in increasing order
  * @size: size of the array
+ * @value: value to find in array
  *
  * Return: The index where the value is located, otherwise, -1
  */
 
-int divide_and_conquer(int *sorted_arr, size_t size)
+int divide_and_conquer(int *sorted_arr, size_t size, int value)
 {
+	int *new_arr;
 	int mid;
 
 	mid = size / 2;
@@ -64,12 +68,14 @@ int divide_and_conquer(int *sorted_arr, size_t size)
 		 * hand side of the array
 		 */
 		print_array(sorted_arr, size);
-		divide_and_conquer(sorted_arr[mid + 1], size - mid)
+		new_arr = right_arr(sorted_arr, size, mid + 1);
+		divide_and_conquer(new_arr, size - mid, value);
 	}
 	else if (sorted_arr[mid - 1] > value)/*if yes, take the left arr*/
 	{
 		print_array(sorted_arr, size);
-		divide_and_conquer(sorted_arr[mid - 1], size - (mid + 1));
+		new_arr = left_arr(sorted_arr, size, mid - 1);
+		divide_and_conquer(new_arr, size - (mid + 1), value);
 	}
 	return (-1);  /* control flow may never reach here ;) */
 }
@@ -83,7 +89,7 @@ int divide_and_conquer(int *sorted_arr, size_t size)
 
 void print_array(int *array, size_t size)
 {
-	int i;
+	size_t i;
 
 	printf("Searching in array:");
 	for (i = 0; i < size; ++i)
@@ -92,4 +98,46 @@ void print_array(int *array, size_t size)
 		if ((i + 1) == size) /* Last iteration */
 			printf("\n");
 	}
+}
+
+
+/**
+ * right_arr - copies an array from @mid_right till end of the array
+ * @sorted_arr: the array
+ * @size: size of @sorted_arr
+ * @mid_right: the value, right of the middle index
+ *
+ * Return: a partioned array
+ */
+
+int *right_arr(int *sorted_arr, size_t size, int mid_right)
+{
+	static int new_arr[5]; /* 5 is just a placeholder */
+	size_t i;
+
+	for (i = 0; i < size; ++i, ++mid_right)
+		new_arr[i] = sorted_arr[mid_right];
+	return (new_arr); /**
+			   * non-dynamically allocated  arrays can only be
+			   * returned if declared as static */
+}
+
+
+/**
+ * left_arr - copies an array from @mid_left till end of the array
+ * @sorted_arr: the array
+ * @size: size of @sorted_arr
+ * @mid_left: the value, left of the middle index
+ *
+ * Return: a partioned  array
+ */
+
+int *left_arr(int *sorted_arr, size_t size, int mid_left)
+{
+	static int new_arr[5]; /* 5 is just a placeholder */
+	size_t i;
+
+	for (i = 0; i < size; ++i, ++mid_left)
+		new_arr[i] = sorted_arr[mid_left];
+	return (new_arr);
 }

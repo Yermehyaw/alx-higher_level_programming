@@ -40,6 +40,10 @@ int binary_search(int *array, size_t size, int value)
  * the middle value is found in the array. Thus @mid_idx = @mid - 1.
  * @mid isnt used directly due to dicripencies that occur as the array grows
  * smaller during successive recursive calls.
+ * In summary: 
+ * array[mid] is the value right of the middle value
+ * array[mid - 1] is the value middle value itself and;
+ * array[mis - 2] is the value left of the middle value
  *
  * Return: The index where the value is located, otherwise, -1
  */
@@ -57,6 +61,7 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 		return (mid); /*index right of the middle value*/
 	else if (sorted_arr[mid_idx - 2] == value)
 		return (mid_idx - 2); /*index left of the middle value*/
+	/*Fix later.....*/
 	/**
 	 *  value is not in the array if both mid_idx+1 and mid_idx-1 are greater 
 	 *  than value or less than value
@@ -68,7 +73,7 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 			/*(sorted_arr[mid_idx + 1] > value))*/
 		/*return (-1);*/ /* both are greater than */
 	/* Recursive calls */
-	if (sorted_arr[mid_idx + 1] < value) /*if yes, take right hand side of arr*/
+	if (sorted_arr[mid] < value) /*if yes, take right hand side of arr*/
 	{
 		/**
 		 * the array is sorted in ascending order, so the if the value
@@ -77,16 +82,15 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 		 * hand side of the array
 		 */
 		print_array(sorted_arr, size);
-		new_arr = right_arr(sorted_arr, size, (mid_idx + 1));
-		size = size - (mid_idx - 1);
+		new_arr = right_arr(sorted_arr, size, mid); /*Possible err here*/
+		size = size - (mid + 1); /*new size param*/
 		divide_and_conquer(new_arr, size, value);
-		/*(size - (mid_idx - 1)) is now the new size param*/
 	}
-	else if (sorted_arr[mid_idx - 1] > value)/*if yes, take the left arr*/
+	else if (sorted_arr[mid - 2] > value)/*if yes, take the left arr*/
 	{
 		print_array(sorted_arr, size);
-		new_arr = left_arr(sorted_arr, size, (mid_idx - 1));
-		size = size - (mid_idx + 2);
+		new_arr = left_arr(sorted_arr, size, mid - 2); /*and here, check function declarations, to see if mid should really be in index reange or not or the */
+		size = size - mid;
 		divide_and_conquer(new_arr, size, value);
 	}
 	return (-1);  /* control flow may never reach here ;) */

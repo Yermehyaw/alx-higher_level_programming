@@ -120,7 +120,7 @@ void print_array(int *array, size_t size)
 
 int *right_arr(int *sorted_arr, size_t size, int mid_right)
 {
-	static int new_arr[5]; /* 5 is just a placeholder */
+	static int new_arr[10]; /* 10 is just a placeholder */
 	size_t i;
 
 	for (i = 0; i < size; ++i, ++mid_right)
@@ -142,7 +142,7 @@ int *right_arr(int *sorted_arr, size_t size, int mid_right)
 
 int *left_arr(int *sorted_arr, size_t size, int mid_left)
 {
-	static int new_arr[5]; /* 5 is just a placeholder */
+	static int new_arr[10]; /* 10 is just a placeholder */
 	size_t i;
 
 	for (i = 0; i < size; ++i, ++mid_left)

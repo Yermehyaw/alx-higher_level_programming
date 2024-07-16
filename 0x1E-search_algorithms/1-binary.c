@@ -35,11 +35,11 @@ int binary_search(int *array, size_t size, int value)
  * @value: value to find in array
  *
  * Description: Please note that references made to @mid and @mid_idx in
- * the code refer to two different variables. @mid is the index when
- * size id divided by 2, while @mid_idx is the valid middle index within the
- * range of an array. Thus @mid_idx = @mid - 1.
+ * the code refer to two different variables. @mid is the value at the middle
+ * index derived when size is divided by 2, while @mid_idx is true index where
+ * the middle value is found in the array. Thus @mid_idx = @mid - 1.
  * @mid isnt used directly due to dicripencies that occur as the array grows
- * during recursive calls.
+ * smaller during successive recursive calls.
  *
  * Return: The index where the value is located, otherwise, -1
  */
@@ -52,14 +52,14 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 	mid = size / 2; /*DONT REDUCE TO INDEX VALUE, see @Description */
 	/* Base-cases, forgive the many if, else ifs.... ;) */
 	if (sorted_arr[mid - 1] == value)
-		return (mid - 1); /*return the very index where the vaue is */
+		return (mid - 1); /*return the very index where the value is */
 	else if (sorted_arr[mid] == value)
-		return (mid); /*right of the mid*/
+		return (mid); /*index right of the middle value*/
 	else if (sorted_arr[mid_idx - 2] == value)
-		return (mid_idx - 2);
+		return (mid_idx - 2); /*index left of the middle value*/
 	/**
-	 *  value is not in the array if both mid_idx+1 and mid_idx-1 are greater than
-	 *  value or less than value
+	 *  value is not in the array if both mid_idx+1 and mid_idx-1 are greater 
+	 *  than value or less than value
 	 */
 	/*else if ((sorted_arr[mid_idx - 1] < value) && */
 			/*(sorted_arr[mid_idx + 1] < value))*/

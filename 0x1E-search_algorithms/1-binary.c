@@ -54,10 +54,10 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 	 *  value is not in the array if both mid+1 and mid-1 are greater than
 	 *  or less than value
 	 */
-	else if (sorted_arr[mid - 1] < value && sorted_arr[mid + 1] < value)
+	else if ((sorted_arr[mid - 1] < value) && (sorted_arr[mid + 1] < value))
 		return (-1); /* both value at the indices are less than */
-	else if (sorted_arr[mid - 1] > value && sorted_arr[mid + 1] > value)
-		return (-1); /* botha re greater than */
+	else if ((sorted_arr[mid - 1] > value) && (sorted_arr[mid + 1] > value))
+		return (-1); /* both are greater than */
 	/* Recursive calls */
 	if (sorted_arr[mid + 1] < value) /*if yes, take right hand side of arr*/
 	{

@@ -34,22 +34,29 @@ int binary_search(int *array, size_t size, int value)
  * @size: size of the array
  * @value: value to find in array
  *
+ * Description: Please note that references made to @mid and @mid_idx in
+ * the code refer to two different variables. @mid is the index when
+ * size id divided by 2, while @mid_idx is the valid middle index within the
+ * range of an array. Thus @mid_idx = @mid - 1.
+ * @mid isnt used directly due to dicripencies that occur as the array grows
+ * during recursive calls.
+ *
  * Return: The index where the value is located, otherwise, -1
  */
 
 int divide_and_conquer(int *sorted_arr, size_t size, int value)
 {
 	int *new_arr;
-	int mid_idx;
+	int mid;
 
-	mid_idx = (size / 2) - 1; /* -1 to place index in a valid range */
+	mid = size / 2; /*DONT REDUCE TO INDEX VALUE, see @Description */
 	/* Base-cases, forgive the many if, else ifs.... ;) */
-	if (sorted_arr[mid_idx] == value)
-		return (mid_idx);
-	else if (sorted_arr[mid_idx + 1] == value)
-		return (mid_idx + 1);
-	else if (sorted_arr[mid_idx - 1] == value)
-		return (mid_idx - 1);
+	if (sorted_arr[mid - 1] == value)
+		return (mid - 1); /*return the very index where the vaue is */
+	else if (sorted_arr[mid] == value)
+		return (mid); /*right of the mid*/
+	else if (sorted_arr[mid_idx - 2] == value)
+		return (mid_idx - 2);
 	/**
 	 *  value is not in the array if both mid_idx+1 and mid_idx-1 are greater than
 	 *  value or less than value
@@ -70,14 +77,17 @@ int divide_and_conquer(int *sorted_arr, size_t size, int value)
 		 * hand side of the array
 		 */
 		print_array(sorted_arr, size);
-		new_arr = right_arr(sorted_arr, size, mid_idx + 1);
-		divide_and_conquer(new_arr, size - mid_idx, value);
+		new_arr = right_arr(sorted_arr, size, (mid_idx + 1));
+		size = size - (mid_idx - 1);
+		divide_and_conquer(new_arr, size, value);
+		/*(size - (mid_idx - 1)) is now the new size param*/
 	}
 	else if (sorted_arr[mid_idx - 1] > value)/*if yes, take the left arr*/
 	{
 		print_array(sorted_arr, size);
-		new_arr = left_arr(sorted_arr, size, mid_idx - 1);
-		divide_and_conquer(new_arr, size - (mid_idx + 1), value);
+		new_arr = left_arr(sorted_arr, size, (mid_idx - 1));
+		size = size - (mid_idx + 2);
+		divide_and_conquer(new_arr, size, value);
 	}
 	return (-1);  /* control flow may never reach here ;) */
 }
@@ -113,7 +123,7 @@ void print_array(int *array, size_t size)
  * right_arr - copies an array from @mid_right till end of the array
  * @sorted_arr: the array
  * @size: size of @sorted_arr
- * @mid_right: the value, right of the middle index
+ * @mid_right: the index, right of the middle index
  *
  * Return: a partitioned array
  */
@@ -123,7 +133,11 @@ int *right_arr(int *sorted_arr, size_t size, int mid_right)
 	static int new_arr[10]; /* 10 is just a placeholder */
 	size_t i;
 
-	for (i = 0; i < size; ++i, ++mid_right)
+	/**
+	 * mid_right is of an index range and should iterate till
+	 * the very end of the array
+	 */
+	for (i = 0; mid_right < size; ++i, ++mid_right)
 		new_arr[i] = sorted_arr[mid_right];
 	return (new_arr); /**
 			   * non-dynamically allocated  arrays can only be
@@ -135,7 +149,7 @@ int *right_arr(int *sorted_arr, size_t size, int mid_right)
  * left_arr - copies an array from @mid_left till end of the array
  * @sorted_arr: the array
  * @size: size of @sorted_arr
- * @mid_left: the value, left of the middle index
+ * @mid_left: the index, left of the middle index
  *
  * Return: a partitioned  array
  */
@@ -145,7 +159,11 @@ int *left_arr(int *sorted_arr, size_t size, int mid_left)
 	static int new_arr[10]; /* 10 is just a placeholder */
 	size_t i;
 
-	for (i = 0; i < size; ++i, ++mid_left)
-		new_arr[i] = sorted_arr[mid_left];
+	/**
+	 * mid_left is of an index range, thus <= is used to ensure the 
+	 * very last value in the array is copied 
+	 */
+	for (i = 0; i <= mid_left; ++i)
+		new_arr[i] = sorted_arr[i];
 	return (new_arr);
 }

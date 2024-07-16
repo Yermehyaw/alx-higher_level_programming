@@ -95,15 +95,17 @@ void print_array(int *array, size_t size)
 
 	/*This printing format is a task req*/
 	if (size >= 1) /*If the array has at least one element*/
-		printf("Searching in array: %d", array[0]);
-	else /*not sure if necessary*/
-		printf("Searching in array:");
-	for (i = 1; i <= size; ++i) /*print remining elem on the same line*/
 	{
-		printf(" ,%d", array[i]);
-		if ((i == size) /*print a newline at the last iteration*/
-			printf("\n");
+		printf("Searching in array: %d", array[0]);
+		for (i = 1; i <= size; ++i) /*print remining elem on the same line*/
+		{
+			printf(" ,%d", array[i]);
+			if ((i == size) /*print a newline at the last iteration*/
+				printf("\n");
+		}
 	}
+	else /*not sure if still needed*/
+		printf("Searching in array:");
 }
 
 

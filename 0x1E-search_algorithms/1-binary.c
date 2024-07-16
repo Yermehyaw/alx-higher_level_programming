@@ -24,7 +24,7 @@ int binary_search(int *array, size_t size, int value)
 	if (size == 1)  /* Array of size 1*/
 		return (0);
 	found = divide_and_conquer(array, size, value);
-	return (found);  /*if -1, value was not foind in the array*/
+	return (found);  /*if -1, value was not found in the array*/
 }
 
 
@@ -40,42 +40,44 @@ int binary_search(int *array, size_t size, int value)
 int divide_and_conquer(int *sorted_arr, size_t size, int value)
 {
 	int *new_arr;
-	int mid;
+	int mid_idx;
 
-	mid = size / 2;
+	mid_idx = (size / 2) - 1; /* -1 to place index in a valid range */
 	/* Base-cases, forgive the many if, else ifs.... ;) */
-	if (sorted_arr[mid] == value)
-		return (mid - 1); /*index starts from 0, mid mist reduce by 1*/
-	else if (sorted_arr[mid + 1] == value)
-		return ((mid + 1) - 1); /* or just return mid */
-	else if (sorted_arr[mid - 1] == value)
-		return ((mid - 1) - 1); /* or mid - 2 */
+	if (sorted_arr[mid_idx] == value)
+		return (mid_idx);
+	else if (sorted_arr[mid_idx + 1] == value)
+		return (mid_idx + 1);
+	else if (sorted_arr[mid_idx - 1] == value)
+		return (mid_idx - 1);
 	/**
-	 *  value is not in the array if both mid+1 and mid-1 are greater than
-	 *  or less than value
+	 *  value is not in the array if both mid_idx+1 and mid_idx-1 are greater than
+	 *  value or less than value
 	 */
-	else if ((sorted_arr[mid - 1] < value) && (sorted_arr[mid + 1] < value))
+	else if ((sorted_arr[mid_idx - 1] < value) && 
+			(sorted_arr[mid_idx + 1] < value))
 		return (-1); /* both value at the indices are less than */
-	else if ((sorted_arr[mid - 1] > value) && (sorted_arr[mid + 1] > value))
-		return (-1); /* both are greater than */
+	/*else if ((sorted_arr[mid_idx - 1] > value) && */
+			/*(sorted_arr[mid_idx + 1] > value))*/
+		/*return (-1);*/ /* both are greater than */
 	/* Recursive calls */
-	if (sorted_arr[mid + 1] < value) /*if yes, take right hand side of arr*/
+	if (sorted_arr[mid_idx + 1] < value) /*if yes, take right hand side of arr*/
 	{
 		/**
 		 * the array is sorted in ascending order, so the if the value
-		 * right of the mid is less than the value of interest, it shows
+		 * right of the mid_idx is less than the value of interest, it shows
 		 * that the value of interest is large and thus at the right
 		 * hand side of the array
 		 */
 		print_array(sorted_arr, size);
-		new_arr = right_arr(sorted_arr, size, mid + 1);
-		divide_and_conquer(new_arr, size - mid, value);
+		new_arr = right_arr(sorted_arr, size, mid_idx + 1);
+		divide_and_conquer(new_arr, size - mid_idx, value);
 	}
-	else if (sorted_arr[mid - 1] > value)/*if yes, take the left arr*/
+	else if (sorted_arr[mid_idx - 1] > value)/*if yes, take the left arr*/
 	{
 		print_array(sorted_arr, size);
-		new_arr = left_arr(sorted_arr, size, mid - 1);
-		divide_and_conquer(new_arr, size - (mid + 1), value);
+		new_arr = left_arr(sorted_arr, size, mid_idx - 1);
+		divide_and_conquer(new_arr, size - (mid_idx + 1), value);
 	}
 	return (-1);  /* control flow may never reach here ;) */
 }

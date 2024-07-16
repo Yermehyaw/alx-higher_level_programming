@@ -107,7 +107,7 @@ void print_array(int *array, size_t size)
  * @size: size of @sorted_arr
  * @mid_right: the value, right of the middle index
  *
- * Return: a partioned array
+ * Return: a partitioned array
  */
 
 int *right_arr(int *sorted_arr, size_t size, int mid_right)
@@ -129,7 +129,7 @@ int *right_arr(int *sorted_arr, size_t size, int mid_right)
  * @size: size of @sorted_arr
  * @mid_left: the value, left of the middle index
  *
- * Return: a partioned  array
+ * Return: a partitioned  array
  */
 
 int *left_arr(int *sorted_arr, size_t size, int mid_left)

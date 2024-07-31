@@ -1,6 +1,6 @@
 # 0x14-javascript-web_scraping
-Handling web requsts and responses in javascript with Requests module
-via a REST API. Writing to files in with fs module.
+Generate webpage data from reading and writing to files and handling
+requests/responses to/from REST API in JavaScript
 
 ## Contents:
 0: Print contents of a file

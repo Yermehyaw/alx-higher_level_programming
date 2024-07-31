@@ -9,5 +9,5 @@ request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   }
-  console.log('code: ' && response.statusCode);
+  console.log('code: ' + response.statusCode);
 });

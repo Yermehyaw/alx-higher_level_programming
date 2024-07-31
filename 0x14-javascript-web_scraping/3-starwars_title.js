@@ -11,4 +11,5 @@ request(url, function (err, response, body) {
     console.log('Connection failed');
   } else {
     console.log(body.parse['title']);
+  }
 });

@@ -12,4 +12,3 @@ request(url, function (err, response, body) {
   } else {
     console.log(body.parse['title']);
 });
-

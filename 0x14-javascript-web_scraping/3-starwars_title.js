@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /**
- * Print th title of a STAR Wars movie from an API
+ * Print the title of a STAR Wars movie from an API
  */
 const request = require('request');
 

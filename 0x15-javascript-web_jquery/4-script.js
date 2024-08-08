@@ -3,9 +3,9 @@
  */
 const $ = window.$;
 $(document).ready(function () {
-  const toggle_header = $('div#toggle_header');
-  toggle_header.addClass('red');
-  toggle_header.on('click', function () {
+  const toggleHeader = $('div#toggle_header');
+  toggleHeader.addClass('red');
+  toggleHeader.on('click', function () {
     $(this).toggleClass('green');
   });
 });

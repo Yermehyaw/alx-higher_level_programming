@@ -1,5 +1,5 @@
 /**
- * Add, remove and delete list by clicks
+ * Translate the <header> based on user input
  */
 const $ = window.$;
 $(document).ready(function () {
